@@ -29,9 +29,9 @@
                                          Normalmente vc vai chama-lo de DI(dependency injection)
                                                             
                                          4)Crie um novo arquivo kotlin:
-                                         Lembrete se você tiver mais de um viewmodel, cada um para uma função diferente
-                                         pode ser adequado criar novo package com nome da sua viewmodel e lá criar os arquivos do koin referentes
-                                         a ele. 
+                                         Lembrete se você tiver mais de um viewmodel, cada um para uma função
+                                         diferente pode ser adequado criar novo package com nome da sua viewmodel
+                                         e lá criar os arquivos do koin referentes a ele. 
                                          exemplo: DI\Eventos\
                                                             ModuloEVENTOS.kt
                                                              AplicationEventos.kt
@@ -39,9 +39,9 @@
                                         ModuloPRAQUEELESERVE.kt
                                         Ali dentro:
                                         val ModuloPRAQUEELESERVE = module{
-                                                                   single { AQUI_SEU_REPOSITORO_repository() }
+                                         single { AQUI_SEU_REPOSITORO_repository() }
 
-                                                                   viewModel {  AQUI_SUA_viewmodel ( AQUI_SEU_REPOSITORO_repository= get() ) } }
+                                         viewModel {  AQUI_SUA_viewmodel ( AQUI_SEU_REPOSITORO_repository= get() ) } }
                                        Vai ficar + ou - assim:
                                                                    
                                        val ModuloEventos = module{
@@ -49,7 +49,8 @@
                                                            viewModel {  viewmodelEventos ( repositoryEventos= get() ) } }
                                                                    
                                        Ele vai apresentar erro por causa do construtor da sua Viewmodel referenciada.
-                                       Dai você deve adequa-la no construtor. Tome cuidado com esta parte, eventualmente tu pode ter
+                                       Dai você deve adequa-la no construtor. 
+                                       Tome cuidado com esta parte, eventualmente tu pode ter
                                        de refatorar parte do teu fonte dentro dela pra não dar erros.
                                        Exemplo:
                                        viewmodelEventos(val repositoryEventos :repository): ViewModel(), LifecycleOwner  {
@@ -68,9 +69,10 @@
                                       modules(ModuloEventos)
                                        } } }
                                                             
-                                      Aqui vc tem de tomar uma decisão, caso precise trabalhar com mais de uma viewmodel, consequentemente
-                                      preparar injeção de mais dependencias.
-                                      Ou você pode inicializar todos os modulos por aqui ou criar uma classe de inicialização independente pra cada 1.
+                                      Aqui vc tem de tomar uma decisão, caso precise trabalhar com mais de uma viewmodel,
+                                      consequentemente  preparar injeção de mais dependencias.
+                                      Ou você pode inicializar todos os modulos por aqui ou criar uma classe de inicialização
+                                      independente pra cada 1.
                                                             
                                       6)Depois no Android manifest:
                                                             
