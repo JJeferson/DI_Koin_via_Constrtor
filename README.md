@@ -1,4 +1,4 @@
-# DI_Koin_via_Constrtor
+# DI_Koin_via_Construtor
                                           Implementando Injeção de Dependências com Koin
                                                                                                                 
                                           Alguns lembretes antes de começar:
